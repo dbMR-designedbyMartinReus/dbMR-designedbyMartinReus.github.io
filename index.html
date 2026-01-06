@@ -1,131 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="de">
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>dbMR - designedbyMartinReus</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/simple-sidebar.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dbMR</title>
   <style>
-  	p {
-		color: green;  
-	}
-  
-  </style>
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --muted:rgba(255,255,255,.65);
+      --border:rgba(255,255,255,.18);
+      --focus:rgba(255,255,255,.45);
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; margin:0; }
+    body{
+      background:var(--bg);
+      color:var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display:grid;
+      place-items:center;
+    }
+    .wrap{
+      width:min(520px, calc(100% - 32px));
+      text-align:center;
+      padding:24px 0;
+    }
+    .logo{
+      width:min(280px, 72vw);
+      height:auto;
+      display:block;
+      margin:0 auto 26px;
+      filter: drop-shadow(0 10px 30px rgba(255,255,255,.06));
+    }
+    form{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+    }
+    input[type="email"]{
+      width:100%;
+      padding:14px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color:var(--fg);
+      outline:none;
+      font-size:16px;
+    }
+    input[type="email"]::placeholder{ color:rgba(255,255,255,.45); }
+    input[type="email"]:focus{ border-color:var(--focus); }
 
+    .consent{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      text-align:left;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.35;
+      padding:6px 2px 2px;
+    }
+    .consent input{ margin-top:3px; }
+
+    button{
+      padding:14px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.12);
+      color:var(--fg);
+      cursor:pointer;
+      font-size:16px;
+    }
+    button:hover{ background: rgba(255,255,255,.18); }
+    button:active{ transform: translateY(1px); }
+
+    .fineprint{
+      margin-top:10px;
+      font-size:12px;
+      color: rgba(255,255,255,.5);
+      line-height:1.35;
+    }
+
+    footer{
+      margin-top:18px;
+      font-size:12px;
+      color: rgba(255,255,255,.55);
+    }
+    footer a{
+      color: rgba(255,255,255,.75);
+      text-decoration:none;
+    }
+    footer a:hover{ text-decoration:underline; }
+
+    /* Honeypot (unsichtbares Feld gegen Bots) */
+    .hp{ position:absolute; left:-9999px; }
+  </style>
 </head>
 
 <body>
+  <main class="wrap">
+    <img class="logo" src="logo.png" alt="Logo" />
 
-  <div class="d-flex" id="wrapper">
+    <form action="https://formspree.io/f/xaqnrynz" method="POST">
+      <label class="hp">
+        Nicht ausfüllen:
+        <input name="website" autocomplete="off" />
+      </label>
 
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">dbMR Home </div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Projects</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Papers</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Education</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Development</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Community</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Contact</a>
-      </div>
+      <input
+        type="email"
+        name="email"
+        placeholder="deine@email.at"
+        autocomplete="email"
+        required
+      />
+
+      <label class="consent">
+        <input type="checkbox" name="consent" required />
+        <span>
+          Ich möchte Updates erhalten und bin damit einverstanden, dass meine E-Mail-Adresse zu diesem Zweck verarbeitet wird.
+          Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.
+        </span>
+      </label>
+
+      <button type="submit">Notify me</button>
+
+      <input type="hidden" name="_subject" value="New signup from homepage" />
+    </form>
+
+    <div class="fineprint">
+      Kein Spam. Abmeldung jederzeit per Antwort auf eine E-Mail.
     </div>
-    <!-- /#sidebar-wrapper -->
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Hide sidebar</button>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      
-      	<div class="container">
-		  <div class="row">
-		    <div class="col">
-		    	Hello, my name is Martin Reus. I am a passionate Audio Signal Processing Specialist. 
-				I love climbing altough i am more enthusiastic than good at it.  
-		    </div>
-		  </div>
-		  <div class="row">
-		    <div class="col">
-		      <img src="images/Portrait.jpg" style="float:left;width:auto;height:300px; alt="Myself looking good">
-		    </div>
-		    <div class="col">
-	      	  <img src="images/Vorstieg.jpg" style="float:right;width:auto;height:300px; alt="Myself climbing">
-		    </div>
-		  </div>
-		</div>
-		
-      <div class="container-fluid">
-        <h1 class="mt-4">Designed by Martin Reus</h1>
-        <br>
-        <div class="container-fluid">
-        	<p id="one">
-				Hello, my name is Martin Reus. I am a passionate Audio Signal Processing Specialist. 
-				I love climbing altough i am more enthusiastic than good at it.
-			</p>
-	        <img src="images/Portrait.jpg" style="float:left;width:auto;height:600px; alt="Myself looking good">
-	      	<img src="images/Vorstieg.jpg" style="float:right;width:auto;height:600px; alt="Myself climbing">
-		</div>
-	    <div class="container-fluid">
-			<p>This is a Mastering Transfer Chain I developed a few years ago</p>
-			<img src="images/MasteringTransferChain.jpg" class="img-fluid" alt="Myself climbing">
-	  	</div>
-	  </div>
-    </div>
-    <!-- /#page-content-wrapper -->
-
-  </div>
-  <!-- /#wrapper -->
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Menu Toggle Script -->
-  <script>
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-  </script>
-
+    <footer>
+      <a href="impressum.html">Impressum</a>
+      <span style="opacity:.5;"> | </span>
+      <a href="datenschutz.html">Datenschutz</a>
+    </footer>
+  </main>
 </body>
-
 </html>
