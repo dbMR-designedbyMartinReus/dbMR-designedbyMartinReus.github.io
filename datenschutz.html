@@ -4,16 +4,74 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Datenschutz</title>
+
   <style>
-    :root{ --bg:#000; --fg:#fff; --muted:rgba(255,255,255,.65); --border:rgba(255,255,255,.16); }
+    :root{
+      --fg:#fff;
+      --muted:rgba(255,255,255,.70);
+      --border:rgba(255,255,255,.16);
+      --card:rgba(0,0,0,.42);
+    }
+
     *{ box-sizing:border-box; }
-    body{ margin:0; background:var(--bg); color:var(--fg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    .wrap{ width:min(860px, calc(100% - 32px)); margin:0 auto; padding:28px 0 40px; }
-    a{ color:rgba(255,255,255,.82); }
-    .top{ display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:14px; }
-    .btn{ border:1px solid var(--border); padding:10px 12px; border-radius:14px; text-decoration:none; background:rgba(255,255,255,.06); }
-    .card{ border:1px solid var(--border); border-radius:18px; padding:18px; background:rgba(255,255,255,.04); }
+    html, body{ height:100%; margin:0; }
+
+    body{
+      background-image:
+        radial-gradient(1200px 600px at 20% 30%, rgba(0,0,0,.35), rgba(0,0,0,.86)),
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.80)),
+        url("bg.png");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      color: var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+      min-height: 100vh;
+      padding: 40px 16px;
+    }
+
+    @media (max-width: 900px){
+      body{ background-attachment: scroll; }
+    }
+
+    .wrap{
+      width: min(860px, calc(100% - 0px));
+      margin: 0 auto;
+    }
+
+    a{ color: rgba(255,255,255,.85); }
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      margin-bottom:14px;
+    }
+
+    .btn{
+      border:1px solid var(--border);
+      padding:10px 12px;
+      border-radius:14px;
+      text-decoration:none;
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+    }
+
     h1{ font-size:22px; margin:0; }
     h2{ font-size:16px; margin:18px 0 8px; }
     p, li{ color:var(--muted); line-height:1.55; }
@@ -32,8 +90,8 @@
       <p>
         <strong>Martin Reus</strong> (Einzelunternehmer)<br>
         Roith 6, 4842 Zell a.P, Österreich<br>
-        E-Mail: <a href="mailto:[EMAIL]">martin@designedbymartinreus.com</a><br>
-        Telefon: =43 660 691 9454
+        E-Mail: <a href="mailto:martin@designedbymartinreus.com">martin@designedbymartinreus.com</a><br>
+        Telefon: +43 660 691 9454
       </p>
 
       <h2>Welche Daten wir verarbeiten</h2>
@@ -62,7 +120,7 @@
         Formspree verarbeitet dabei auch technische Informationen (u. a. IP-Adresse, Browser-/Zugriffszeiten) zu Sicherheits- und Betriebszwecken.
       </p>
 
-      <h2>Drittlandtransfer (USA) & Schutzmaßnahmen</h2>
+      <h2>Drittlandtransfer (USA) &amp; Schutzmaßnahmen</h2>
       <p>
         Formspree verarbeitet Daten in den USA bzw. in Ländern, in denen Formspree tätig ist. Für Übermittlungen außerhalb EU/EWR stützt sich Formspree
         nach eigenen Angaben auf geeignete Garantien wie Standardvertragsklauseln (SCCs).
